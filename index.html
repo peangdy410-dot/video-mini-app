@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini App Video Player</title>
+    <title>VideoVNP Mini App</title>
     <!-- Telegram Web App SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <!-- Adsgram SDK -->
@@ -11,8 +11,8 @@
     
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--tg-theme-bg-color, #18181b);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--tg-theme-bg-color, #121212);
             color: var(--tg-theme-text-color, #ffffff);
             margin: 0;
             padding: 16px;
@@ -23,86 +23,88 @@
 
         h2 {
             margin-top: 0;
-            margin-bottom: 16px;
-            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: #2481cc;
             text-align: center;
         }
 
         .video-container {
             width: 100%;
             max-width: 500px;
-            margin-bottom: 20px;
         }
 
         .video-card {
-            background-color: var(--tg-theme-secondary-bg-color, #27272a);
+            background-color: var(--tg-theme-secondary-bg-color, #1e1e1e);
             border-radius: 12px;
             padding: 12px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .video-card h3 {
-            margin: 0 0 8px 0;
-            font-size: 1rem;
+            margin: 0 0 10px 0;
+            font-size: 0.95rem;
         }
 
-        video {
+        iframe {
             width: 100%;
+            height: 380px;
+            border: none;
             border-radius: 8px;
-            background-color: #000;
         }
 
         .ad-button {
             width: 100%;
             max-width: 500px;
-            background-color: var(--tg-theme-button-color, #2481cc);
-            color: var(--tg-theme-button-text-color, #ffffff);
+            background-color: #2481cc;
+            color: #ffffff;
             border: none;
             padding: 14px;
             border-radius: 10px;
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .ad-button:active {
-            opacity: 0.8;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <h2>📺 បញ្ជីវីដេអូរបស់អ្នក (My Videos)</h2>
+    <h2>📺វីដេអូVideoVNP</h2>
 
     <div class="video-container">
-        <!-- Video 1 -->
+        <!-- វីដេអូទី ១ -->
         <div class="video-card">
-            <h3>វីដេអូទី ១</h3>
-            <video controls playsinline preload="metadata">
-                <source src="1.mp4" type="video/mp4">
-            </video>
+            <h3>វីដេអូទី១</h3>
+            <iframe src="https://t.me/xwrrasdy1234/8?embed=1" allowfullscreen></iframe>
         </div>
 
-        <!-- Video 2 -->
+        <!-- វីដេអូទី ២ -->
         <div class="video-card">
-            <h3>វីដេអូទី ២</h3>
-            <video controls playsinline preload="metadata">
-                <source src="2.mp4" type="video/mp4">
-            </video>
+            <h3>វីដេអូទី២</h3>
+            <iframe src="https://t.me/xwrrasdy1234/9?embed=1" allowfullscreen></iframe>
         </div>
 
-        <!-- Video 3 -->
+        <!-- វីដេអូទី ៣ -->
         <div class="video-card">
-            <h3>វីដេអូទី ៣</h3>
-            <video controls playsinline preload="metadata">
-                <source src="3.mp4" type="video/mp4">
-            </video>
+            <h3>វីដេអូទី៣</h3>
+            <iframe src="https://t.me/xwrrasdy1234/12?embed=1" allowfullscreen></iframe>
+        </div>
+
+        <!-- វីដេអូទី ៤ -->
+        <div class="video-card">
+            <h3>វីដេអូទី៤</h3>
+            <iframe src="https://t.me/xwrrasdy1234/10?embed=1" allowfullscreen></iframe>
+        </div>
+
+        <!-- វីដេអូទី ៥ -->
+        <div class="video-card">
+            <h3>វីដេអូទី៥</h3>
+            <iframe src="https://t.me/xwrrasdy1234/11?embed=1" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- Adsgram Trigger Button -->
+    <!-- Adsgram Button -->
     <button class="ad-button" onclick="showAdsgramAd()">មើលពាណិជ្ជកម្ម (Watch Ad)</button>
 
     <script>
@@ -115,7 +117,7 @@
             AdController.show().then((result) => {
                 alert("អរគុណសម្រាប់ការទស្សនាពាណិជ្ជកម្ម!");
             }).catch((result) => {
-                alert("ការទស្សនាពាណិជ្ជកម្មមិនទាន់បានបញ្ចប់ ឬគ្មាន Ads ត្រូវបង្ហាញឡើយ។");
+                alert("គ្មាន Ads ត្រូវបង្ហាញឡើយ។");
             });
         }
     </script>
