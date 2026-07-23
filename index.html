@@ -80,8 +80,8 @@
         <!-- Video 1 -->
         <div class="video-card">
             <h3>វីដេអូទី ១</h3>
-            <video controls preload="metadata" poster="AQODH7uXOXs1u2oWIfP8qGrRedumYE4aWxL1.jpg">
-                <source src="o4huDTeG4QjfxSIfGqiarbOvCjAdI3JLV1rIA.mp4" type="video/mp4">
+            <video controls playsinline preload="auto">
+                <source src="https://peangdy410-dot.github.io/video-mini-app/o4huDTeG4QjfxSIfGqiarbOvCjAdI3JLV1rIA.mp4" type="video/mp4">
                 Browser របស់អ្នកមិនគាំទ្រការចាក់វីដេអូឡើយ។
             </video>
         </div>
@@ -89,16 +89,16 @@
         <!-- Video 2 -->
         <div class="video-card">
             <h3>វីដេអូទី ២</h3>
-            <video controls preload="metadata" poster="AQPrkHGrE2_gSj9AKJ6EJ_emwujLpmgwzQuLQ.jpg">
-                <source src="oQRx2ijCiEllwbqOqVfJLBIAIbnv0Bu3AQIWAm.mp4" type="video/mp4">
+            <video controls playsinline preload="auto">
+                <source src="https://peangdy410-dot.github.io/video-mini-app/oQRx2ijCiEllwbqOqVfJLBIAIbnv0Bu3AQIWAm.mp4" type="video/mp4">
             </video>
         </div>
 
         <!-- Video 3 -->
         <div class="video-card">
             <h3>វីដេអូទី ៣</h3>
-            <video controls preload="metadata">
-                <source src="ocgyGUABKgwlKAPiZPzaiFnEcG8aYZCqhBEx.mp4" type="video/mp4">
+            <video controls playsinline preload="auto">
+                <source src="https://peangdy410-dot.github.io/video-mini-app/ocgyGUABKgwlKAPiZPzaiFnEcG8aYZCqhBEx.mp4" type="video/mp4">
             </video>
         </div>
     </div>
@@ -109,17 +109,15 @@
     <script>
         // Initialize Telegram WebApp
         const tg = window.Telegram.WebApp;
-        tg.expand(); // ពង្រីកអេក្រង់ពេញ Telegram
+        tg.expand();
 
         // Initialize Adsgram with Test Block ID "247"
         const AdController = window.Adsgram.init({ blockId: "247" });
 
         function showAdsgramAd() {
             AdController.show().then((result) => {
-                // អ្នកប្រើប្រាស់មើលពាណិជ្ជកម្មចប់
                 alert("អរគុណសម្រាប់ការទស្សនាពាណិជ្ជកម្ម!");
             }).catch((result) => {
-                // មានបញ្ហា ឬអ្នកប្រើប្រាស់ចុចរំលង (Skip)
                 alert("ការទស្សនាពាណិជ្ជកម្មមិនទាន់បានបញ្ចប់ ឬគ្មាន Ads ត្រូវបង្ហាញឡើយ។");
             });
         }
