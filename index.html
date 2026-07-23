@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VideoVNP Mini App</title>
-
+    <title>VideoVNP Mini App - Group Videos</title>
     <!-- Telegram Web App SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    <!-- Adsgram SDK -->
-    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
-    
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--tg-theme-bg-color, #121212);
+            background-color: var(--tg-theme-bg-color, #1a1d21);
             color: var(--tg-theme-text-color, #ffffff);
             margin: 0;
-            padding: 16px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -25,48 +20,72 @@
 
         h2 {
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #2481cc;
             text-align: center;
+            font-size: 1.1rem;
         }
 
-        .video-container {
+        /* Tabs Container */
+        .tab-container {
             width: 100%;
             max-width: 500px;
+            background-color: var(--tg-theme-secondary-bg-color, #24292e);
+            border-radius: 10px;
+            padding: 5px;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            color: var(--tg-theme-text-color, #ffffff);
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .tab-button.active {
+            background-color: #2481cc;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Video Container */
+        .video-list {
+            width: 100%;
+            max-width: 500px;
+            display: none; /* Hide by default */
+        }
+
+        .video-list.active {
+            display: block; /* Show active group */
         }
 
         .video-card {
-            background-color: var(--tg-theme-secondary-bg-color, #1e1e1e);
+            background-color: var(--tg-theme-secondary-bg-color, #24292e);
             border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .video-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 0.95rem;
+            margin: 0 0 8px 0;
+            font-size: 0.9rem;
+            color: #2481cc;
         }
 
         iframe {
             width: 100%;
-            height: 380px;
+            height: 350px;
             border: none;
             border-radius: 8px;
-        }
-
-        .ad-button {
-            width: 100%;
-            max-width: 500px;
-            background-color: #2481cc;
-            color: #ffffff;
-            border: none;
-            padding: 14px;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -74,53 +93,77 @@
 
     <h2>📺 បញ្ជីវីដេអូ VideoVNP</h2>
 
-    <div class="video-container">
+    <!-- Tabs/Group Buttons (តំបន់ដែលបងគូសសញ្ញាក្នុង image_defddf.png) -->
+    <div class="tab-container">
+        <button class="tab-button active" onclick="openGroup(event, 'group1')">១</button>
+        <button class="tab-button" onclick="openGroup(event, 'group2')">២</button>
+        <button class="tab-button" onclick="openGroup(event, 'group3')">៣</button>
+        <button class="tab-button" onclick="openGroup(event, 'group4')">៤</button>
+    </div>
+
+    <!-- =============== Group 1 (វីដេអូទី 1 - 10) =============== -->
+    <div id="group1" class="video-list active">
         <!-- វីដេអូទី ១ -->
         <div class="video-card">
-            <h3>វីដេអូទី ១</h3>
-            <iframe src="https://t.me/xwrrasdy1234/17?embed=1" allowfullscreen></iframe>
+            <h3>វីដេអូទី ១ (កែ Link ត្រង់ SRC)</h3>
+            <iframe src="https://t.me/YOUR_PUBLIC_CHANNEL/8?embed=1" allowfullscreen></iframe>
         </div>
-
+        
         <!-- វីដេអូទី ២ -->
         <div class="video-card">
             <h3>វីដេអូទី ២</h3>
-            <iframe src="https://t.me/xwrrasdy1234/16?embed=1" allowfullscreen></iframe>
+            <iframe src="https://t.me/YOUR_PUBLIC_CHANNEL/9?embed=1" allowfullscreen></iframe>
         </div>
-
-        <!-- វីដេអូទី ៣ -->
-        <div class="video-card">
-            <h3>វីដេអូទី ៣</h3>
-            <iframe src="https://t.me/xwrrasdy1234/15?embed=1" allowfullscreen></iframe>
-        </div>
-
-        <!-- វីដេអូទី ៤ -->
-        <div class="video-card">
-            <h3>វីដេអូទី ៤</h3>
-            <iframe src="https://t.me/xwrrasdy1234/13?embed=1" allowfullscreen></iframe>
-        </div>
-
-        <!-- វីដេអូទី ៥ -->
-        <div class="video-card">
-            <h3>វីដេអូទី ៥</h3>
-            <iframe src="https://t.me/xwrrasdy1234/14?embed=1" allowfullscreen></iframe>
-        </div>
+        
+        <!-- បន្ថែមឱ្យគ្រប់ ១០ វីដេអូត្រង់នេះ (Copy block .video-card ដាក់បន្ត) -->
     </div>
 
-    <!-- Adsgram Button -->
-    <button class="ad-button" onclick="showAdsgramAd()">មើលពាណិជ្ជកម្ម (Watch Ad)</button>
+    <!-- =============== Group 2 (វីដេអូទី 11 - 20) =============== -->
+    <div id="group2" class="video-list">
+        <!-- វីដេអូទី ១១ -->
+        <div class="video-card">
+            <h3>វីដេអូទី ១១</h3>
+            <iframe src="https://t.me/YOUR_PUBLIC_CHANNEL/11?embed=1" allowfullscreen></iframe>
+        </div>
+        
+        <!-- បន្ថែមឱ្យគ្រប់ ១០ វីដេអូត្រង់នេះ -->
+    </div>
+
+    <!-- =============== Group 3 (វីដេអូទី 21 - 30) =============== -->
+    <div id="group3" class="video-list">
+        <!-- បន្ថែមឱ្យគ្រប់ ១០ វីដេអូត្រង់នេះ -->
+        <div style="text-align:center; padding: 20px;">រង់ចាំការ Upload...</div>
+    </div>
+
+    <!-- =============== Group 4 (វីដេអូទី 31 - 40) =============== -->
+    <div id="group4" class="video-list">
+        <!-- បន្ថែមឱ្យគ្រប់ ១០ វីដេអូត្រង់នេះ -->
+        <div style="text-align:center; padding: 20px;">រង់ចាំការ Upload...</div>
+    </div>
 
     <script>
         const tg = window.Telegram.WebApp;
         tg.expand();
 
-        const AdController = window.Adsgram.init({ blockId: "247" });
-
-        function showAdsgramAd() {
-            AdController.show().then((result) => {
-                alert("អរគុណសម្រាប់ការទស្សនាពាណិជ្ជកម្ម!");
-            }).catch((result) => {
-                alert("គ្មាន Ads ត្រូវបង្ហាញឡើយ។");
-            });
+        // មុខងារ Tabs/Group
+        function openGroup(evt, groupName) {
+            var i, video_list, tab_button;
+            
+            // Hide all video groups
+            video_list = document.getElementsByClassName("video-list");
+            for (i = 0; i < video_list.length; i++) {
+                video_list[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            tab_button = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tab_button.length; i++) {
+                tab_button[i].classList.remove("active");
+            }
+            
+            // Show current group, and add active class to the clicked button
+            document.getElementById(groupName).classList.add("active");
+            evt.currentTarget.classList.add("active");
         }
     </script>
 </body>
