@@ -3,63 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Mini App</title>
-    <!-- 1. ភ្ជាប់ SDK របស់ Telegram -->
+    <title>Telegram Mini App Video Player</title>
+    <!-- Telegram Web App SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- Adsgram SDK -->
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+    
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--tg-theme-bg-color, #f4f4f5);
+            color: var(--tg-theme-text-color, #18181b);
             margin: 0;
-            padding: 15px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
             text-align: center;
         }
-        h2 { color: #0088cc; }
+
+        .video-container {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
         .video-card {
-            background-color: #1e1e1e;
+            background-color: var(--tg-theme-secondary-bg-color, #ffffff);
             border-radius: 12px;
             padding: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        iframe, video {
+
+        .video-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+        }
+
+        video {
             width: 100%;
-            height: 210px;
             border-radius: 8px;
-            border: none;
+            background-color: #000;
         }
-        .video-title {
-            font-size: 16px;
-            margin-top: 10px;
+
+        .ad-button {
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--tg-theme-button-color, #2481cc);
+            color: var(--tg-theme-button-text-color, #ffffff);
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 1rem;
             font-weight: bold;
-            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .ad-button:active {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <h2>📺 បញ្ជីវីដេអូភាគ</h2>
+    <h2>📺 បញ្ជីវីដេអូ (Video List)</h2>
 
-    <!-- វីដេអូទី ១ (ឧទាហរណ៍ប្រើ Link YouTube Embed) -->
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-        <div class="video-title">១. វីដេអូណែនាំដំបូង</div>
+    <div class="video-container">
+        <!-- Video 1 -->
+        <div class="video-card">
+            <h3>វីដេអូទី ១</h3>
+            <video controls preload="metadata">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Browser របស់អ្នកមិនគាំទ្រការចាក់វីដេអូឡើយ។
+            </video>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-card">
+            <h3>វីដេអូទី ២</h3>
+            <video controls preload="metadata">
+                <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-card">
+            <h3>វីដេអូទី ៣</h3>
+            <video controls preload="metadata">
+                <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="video-card">
+            <h3>វីដេអូទី ៤</h3>
+            <video controls preload="metadata">
+                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Video 5 -->
+        <div class="video-card">
+            <h3>វីដេអូទី ៥</h3>
+            <video controls preload="metadata">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
 
-    <!-- វីដេអូទី ២ (ឧទាហរណ៍ប្រើ Direct MP4 Link) -->
-    <div class="video-card">
-        <video controls poster="https://via.placeholder.com/400x225">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            Broswer របស់អ្នកមិនទ្រទ្រង់ Video Tag ទេ។
-        </video>
-        <div class="video-title">២. របៀបប្រើប្រាស់ App</div>
-    </div>
+    <!-- Adsgram Trigger Button -->
+    <button class="ad-button" onclick="showAdsgramAd()">មើលពាណិជ្ជកម្ម (Watch Ad)</button>
 
     <script>
-        // ប្រាប់ Telegram ថា App រួចរាល់សម្រាប់បង្ហាញ
+        // Initialize Telegram WebApp
         const tg = window.Telegram.WebApp;
-        tg.expand(); // ពង្រីក App ឱ្យពេញអេក្រង់ទូរស័ព្ទ
+        tg.expand(); // ពង្រីកអេក្រង់ពេញ Telegram
+
+        // Initialize Adsgram with Test Block ID "247"
+        const AdController = window.Adsgram.init({ blockId: "247" });
+
+        function showAdsgramAd() {
+            AdController.show().then((result) => {
+                // អ្នកប្រើប្រាស់មើលពាណិជ្ជកម្មចប់
+                alert("អរគុណសម្រាប់ការទស្សនាពាណិជ្ជកម្ម!");
+            }).catch((result) => {
+                // មានបញ្ហា ឬអ្នកប្រើប្រាស់ចុចរំលង (Skip)
+                alert("ការទស្សនាពាណិជ្ជកម្មមិនទាន់បានបញ្ចប់ ឬគ្មាន Ads ត្រូវបង្ហាញឡើយ។");
+            });
+        }
     </script>
 </body>
 </html>
